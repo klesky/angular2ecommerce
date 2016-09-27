@@ -1,3 +1,4 @@
+import { AboutComponent } from './about/about.component';
 import { ReceiptSelectorComponent } from './receipt-selector/receipt-selector.component';
 //these 2 are needed to create routing
 //https://angular.io/docs/ts/latest/tutorial/toh-pt5.html
@@ -22,6 +23,10 @@ const appRoute:Routes = [
     {
         path:'receipt/:id',
         component:ReceiptComponent
+    },
+    {
+        path:'about',
+        component:AboutComponent
     }
 ]
 

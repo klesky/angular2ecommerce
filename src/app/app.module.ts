@@ -11,7 +11,8 @@ import { TaxPipePipe } from './tax-pipe.pipe';
 import { OrderService } from "./order.service";
 import { ReceiptComponent } from './receipt/receipt.component';
 import { ReceiptSelectorComponent } from './receipt-selector/receipt-selector.component'
-import {routing} from "./app.routing" //import routing
+import {routing} from "./app.routing";
+import { AboutComponent } from './about/about.component' //import routing
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import {routing} from "./app.routing" //import routing
     TotalPipePipe,
     TaxPipePipe,
     ReceiptComponent,
-    ReceiptSelectorComponent
+    ReceiptSelectorComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
