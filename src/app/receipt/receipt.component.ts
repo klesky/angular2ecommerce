@@ -17,7 +17,7 @@ export class ReceiptComponent implements OnInit {
   taxRate:number
   currency:string
 
-  constructor(private od:OrderService, private currentRoute:ActivatedRoute) { 
+  constructor(private od:OrderService, private currentRoute:ActivatedRoute) { //use private in order to make the contstructor argument as local class variable
     //this.order = od.getAllOrder()[0]
     this.taxRate = 7;
     this.currency = "MYR"
