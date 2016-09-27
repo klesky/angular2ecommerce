@@ -1,6 +1,7 @@
 <table class="table">
   <tr *ngFor="let item of orders">
-    <td>{{item.id}}</td>
+    <td><a routerLink="../receipt/{{item.id}}">{{item.id}} (router link)</a>
+    <a href="../receipt/{{item.id}}">{{item.id}} (normal link)</a></td>
     <td>{{item.getTotal()}}</td>
   </tr>
 </table>
