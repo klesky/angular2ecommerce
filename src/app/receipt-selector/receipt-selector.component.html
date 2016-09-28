@@ -1,7 +1,11 @@
+<a routerLink="../editor/new" class="btn btn-primary">ADD ORDER</a>
 <table class="table">
   <tr *ngFor="let item of orders">
-    <td><a routerLink="../receipt/{{item.id}}">{{item.id}} (router link)</a>
-    <a href="../receipt/{{item.id}}">{{item.id}} (normal link)</a></td>
+    <td>
+      <a routerLink="../receipt/{{item.id}}">{{item.id}} (router link)</a>
+      <a href="../receipt/{{item.id}}">{{item.id}} (normal link)</a>
+      <a routerLink="../editor/{{item.id}}" class="btn btn-primary">EDIT</a>
+    </td>
     <td>{{item.getTotal()}}</td>
   </tr>
 </table>

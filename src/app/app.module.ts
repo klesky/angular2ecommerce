@@ -12,7 +12,8 @@ import { OrderService } from "./order.service";
 import { ReceiptComponent } from './receipt/receipt.component';
 import { ReceiptSelectorComponent } from './receipt-selector/receipt-selector.component'
 import {routing} from "./app.routing";
-import { AboutComponent } from './about/about.component' //import routing
+import { AboutComponent } from './about/about.component';
+import { ReceiptEditorComponent } from './receipt-editor/receipt-editor.component' //import routing
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { AboutComponent } from './about/about.component' //import routing
     TaxPipePipe,
     ReceiptComponent,
     ReceiptSelectorComponent,
-    AboutComponent
+    AboutComponent,
+    ReceiptEditorComponent
   ],
   imports: [
     BrowserModule,

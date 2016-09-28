@@ -27,7 +27,7 @@ export class OrderService {
   constructor() {
     //make everytime we call this service load all data to _orders
     this.load()
-   }
+  }
   private _orders: Array<Order>;
 
   //save data to localstorage
@@ -41,9 +41,7 @@ export class OrderService {
     let string_data = localStorage[LOCAL_KEY];
     let order_array;
     if (typeof string_data == "undefined") {
-      order_array = ORDERS; //when we not found data
-      //save data in localstorage
-      this._orders = this.loadData(order_array);
+      this._orders = this.loadData(ORDERS);
       this.save();
     }
     else {
@@ -56,7 +54,7 @@ export class OrderService {
   }
 
   getAllOrder(): Array<Order> {
-    return ORDERS
+    return this._orders;
   }
 
   getOrder(id: string) {
@@ -64,6 +62,33 @@ export class OrderService {
       return item.id == id;
     })
 
+  }
+
+  updateOrder(order: Order) {
+    //find index of order in _orders
+    let index = this._orders.findIndex(item => {
+      return item.id == order.id
+    })
+    console.log("index: " + index);
+    if (index == -1)
+      this._orders.push(order);
+    else {
+      //replace _orders[index] with order
+      this._orders[index] = order;
+    }
+
+    //save()
+    this.save();
+  }
+
+  deleteOrder(order: Order) {
+    //find index of order in _orders
+    let index = this._orders.findIndex(item => {
+      return item.id == order.id
+    })
+    this._orders.splice(index, 1);
+    //save()
+    this.save();
   }
 
   loadData(orders_json_array: Array<any>) {

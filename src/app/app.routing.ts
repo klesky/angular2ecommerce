@@ -1,3 +1,4 @@
+import { ReceiptEditorComponent } from './receipt-editor/receipt-editor.component';
 import { AboutComponent } from './about/about.component';
 import { ReceiptSelectorComponent } from './receipt-selector/receipt-selector.component';
 //these 2 are needed to create routing
@@ -5,8 +6,8 @@ import { ReceiptSelectorComponent } from './receipt-selector/receipt-selector.co
 import {ModuleWithProviders}  from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 
-//import components that we going to use for each page
 
+//import components that we going to use for each page
 import { ReceiptComponent } from "./receipt/receipt.component"
 
 //create appRoute constants
@@ -27,6 +28,10 @@ const appRoute:Routes = [
     {
         path:'about',
         component:AboutComponent
+    },
+    {
+        path:'editor/:id',
+        component:ReceiptEditorComponent
     }
 ]
 

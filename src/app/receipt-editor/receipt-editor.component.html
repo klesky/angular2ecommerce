@@ -1,0 +1,30 @@
+<div class="row">
+  <!-- here is for edit date -->
+  <div class="col-md-1">
+    <label>Create Date</label>
+  </div>
+  <div class="col-md-11">
+    <input type="date" [(ngModel)]="formDate" class="form-control" />
+  </div>
+</div>
+<div class="debug-mode">
+  validate status: {{validate()}}
+</div>
+<!-- here is for edit items -->
+<button class="btn btn-primary" (click)="addItem()">ADD ITEM</button>
+<table class="table">
+  <tr *ngFor="let order_item of order.items; let i = index">
+    <td><input placeholder="Item" [(ngModel)]="order_item.item" class="form-control" type="text" name="" value=""></td>
+    <td><input placeholder="Quantity" [(ngModel)]="order_item.quantity" class="form-control" type="number" name="" value=""></td>
+    <td><input placeholder="Unit Price" [(ngModel)]="order_item.unit_price" class="form-control" type="numbertext" name="" value=""></td>
+    <td><button class="btn btn-danger" (click)="deleteItem(i)" type="">X</button>
+  </tr>
+</table>
+
+<div>
+  <button class="btn btn-success" (click)="onSave()" type="">SAVE</button>
+  <button class="btn btn-danger" (click)="onDelete()" type="">DELETE</button>
+</div>
+
+<!-- end of edit items -->
+<pre>{{order | json}}</pre>
