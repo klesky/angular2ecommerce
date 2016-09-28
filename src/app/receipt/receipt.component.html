@@ -1,5 +1,6 @@
 <section *ngIf="order">
 <h1>Date {{order.create_time | date}}</h1>
+<a routerLink="../../editor/{{order.id}}" class="btn btn-primary">EDIT</a>
 <div>
   <table class='table table-bordered'>
     <tr>

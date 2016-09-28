@@ -1,6 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Order } from "./order"
 import { OrderItem } from "./order-item"
+import { Http } from "@angular/http" //inject to constructor
+import { Operator, Observable } from 'rxjs'
+import 'rxjs/add/operator/toPromise'
+import 'rxjs/add/operator/map'
 
 const ORDERS = [
   new Order([
@@ -20,11 +24,12 @@ const ORDERS = [
   ], new Date("2015-12-04"))]
 
 const LOCAL_KEY: string = "order_key"
+const URL:string = "data/orders.json"
 
 @Injectable()
 export class OrderService {
 
-  constructor() {
+  constructor(private http:Http) {
     //make everytime we call this service load all data to _orders
     this.load()
   }
@@ -104,4 +109,30 @@ export class OrderService {
     })
     return orders;
   }
+
+  /*getOrderFromUrl(callback:Function){
+    this.http/get(URL).subscribe(resp =>)
+  }*/
+  //sample
+  getOrderFromURL():Promise<Array<Order>>{
+    return this.http.get(URL).toPromise()
+      .then(resp => this.loadData(resp.json()))
+      .catch(reason => [])
+  };
+  
+  //sample
+  getOrderFromURL2():Observable<Array<Order>>{
+    return this.http.get(URL).map(resp =>{
+      return this.loadData(resp.json()) 
+    })
+  }
+
+  loadDataFromURL():Promise<Array<Order>>{
+    return this.http.get(URL).toPromise().then(resp =>{
+      this._orders = this.loadData(resp.json())
+      this.save();
+      return this._orders;
+    })
+  }
+
 }

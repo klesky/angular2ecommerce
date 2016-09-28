@@ -1,4 +1,6 @@
 <a routerLink="../editor/new" class="btn btn-primary">ADD ORDER</a>
+<button (click)="loadFromURL()" class="btn btn-primary"> Load data from url</button>
+
 <table class="table">
   <tr *ngFor="let item of orders">
     <td>
